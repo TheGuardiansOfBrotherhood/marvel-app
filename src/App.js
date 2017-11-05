@@ -9,7 +9,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Header/>
+				<Header />
 				Content center
 				<Footer />
 			</div>
