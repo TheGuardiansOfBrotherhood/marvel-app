@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import './footer.css';
 
-export class Footer extends Component {
+export class Footer extends React.Component {
 	render() {
 		return (
 			<div className="footer grey-600">
