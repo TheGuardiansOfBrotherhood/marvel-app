@@ -4,6 +4,9 @@ import './brotherhood.min.css';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import Marvel from './Marvel';
+import $ from 'jquery';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Marvel/>, document.getElementById('root'));
 registerServiceWorker();
