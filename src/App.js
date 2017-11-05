@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Header } from './components/header';
-import { Bottom } from './components/bottom';
+import { Footer } from './components/footer';
 
 class App extends Component {
 	render() {
 		return (
 			<div>
-				<Header className="red"/>
+				<Header/>
 				Content center
-				<Bottom />
+				<Footer />
 			</div>
 		);
 	}

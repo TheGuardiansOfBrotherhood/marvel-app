@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import './bottom.css';
+import './footer.css';
 
-export class Bottom extends Component {
+export class Footer extends Component {
 	render() {
 		return (
-			<div className="bottom grey-600">
+			<div className="footer grey-600">
 				<h3>© Todos os direitos reservados</h3>
 			</div>
 		);
