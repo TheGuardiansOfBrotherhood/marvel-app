@@ -38,7 +38,7 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 	render() {
 		const items = this.getItems();
 		return (
-			<div className="content">
+			<div className="content row col-4 grey-50">
 				{ items }
 			</div>
 		);
