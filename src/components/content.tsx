@@ -5,12 +5,19 @@ import './content.css';
 
 import { Character } from './../interfaces';
 
-import { Item } from './../components';
+import { Item, Search } from './../components';
 
 interface MyComponentProps { }
 interface MyComponentState { characters :  Array<Character> }
 
+const HOST = 'https://gateway.marvel.com';
+const API_KEY = 'a2d01370e4278b621c371892e9041094';
+const TIMESTAMP = 1;
+const HASH = '0137664330e5b71ccbdff2421cafa4d7';
+
 export class Content extends React.Component<MyComponentProps, MyComponentState> {
+
+	private searchTimeout: any = null;
 
 	constructor() {
 		super();
@@ -24,10 +31,10 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 		this.search();
 	}
 
-	search(event?: any) {
+	search(query: string = '') {
 		$.ajax({
 	         method: 'GET',
-	         url: 'https://gateway.marvel.com/v1/public/characters?apikey=a2d01370e4278b621c371892e9041094&ts=1&hash=0137664330e5b71ccbdff2421cafa4d7',
+	         url: `${HOST}/v1/public/characters?nameStartsWith=${query}&apikey=${API_KEY}&ts=${TIMESTAMP}&hash=${HASH}`,
 	         success: (result) => {
 				const characters = result.data.results as Array<Character>;
 				this.setState({ characters });
@@ -38,8 +45,11 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 	render() {
 		const items = this.getItems();
 		return (
-			<div className="content row col-4 grey-50">
-				{ items }
+			<div>
+				<Search onKeySearch={this.onKeySearch.bind(this) } />
+				<div className="content row col-4 grey-50">
+					{ items }
+				</div>
 			</div>
 		);
 	}
@@ -47,4 +57,17 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 	getItems() {
 		return this.state.characters.map(character => <Item key={character.id} character={character} />);
 	}
+
+	onKeySearch(event: any) {
+
+		const value = event.target.value;
+
+		if (this.searchTimeout != null) {
+			clearTimeout(this.searchTimeout);
+		}
+
+        this.searchTimeout = setTimeout(() => {
+			this.search(value);
+        }, 500);
+    }
 }
