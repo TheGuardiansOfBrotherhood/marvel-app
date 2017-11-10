@@ -31,7 +31,7 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 		this.search();
 	}
 
-	search(query: string = '') {
+	search(query: string = 'spider') {
 		$.ajax({
 	         method: 'GET',
 	         url: `${HOST}/v1/public/characters?nameStartsWith=${query}&apikey=${API_KEY}&ts=${TIMESTAMP}&hash=${HASH}`,

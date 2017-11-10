@@ -19,6 +19,8 @@
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
+    margin: 0 auto;
+    padding-top: 25px;
 }
 
 .container-3 input#search {
