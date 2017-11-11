@@ -1,0 +1,16 @@
+.bodyModal{
+    text-align: center;
+    float: left;
+}
+
+.bodyModal img{
+    margin: 10px;
+}
+
+.bodyModal p{
+    margin: 20px;
+}
+
+.titleModal{
+    text-align: center;
+}
