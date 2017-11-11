@@ -7,8 +7,8 @@ interface MyComponentState { name: string, description: string }
 
 export class Form extends React.Component<MyComponentProps, MyComponentState> {
 
-    constructor() {
-        super();
+    constructor(props : MyComponentProps) {
+        super(props);
 
         this.state = {
             name: '',
