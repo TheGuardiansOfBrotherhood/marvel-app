@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/jquery": "^3.2.16",
+    "jquery": "^3.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts-ts": "2.8.0"

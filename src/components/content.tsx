@@ -19,8 +19,8 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 
 	private searchTimeout: any = null;
 
-	constructor() {
-		super();
+	constructor(props : MyComponentProps) {
+		super(props);
 
 		this.state = {
 			characters: []
