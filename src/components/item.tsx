@@ -13,13 +13,13 @@ export class Item extends React.Component<MyComponentProps, MyComponentState> {
         return (
             <div className="item">
                 <div>
-                    <img className="responsive-img image-rounded" src={ this.props.character.thumbnail.path + '/standard_xlarge.' + this.props.character.thumbnail.extension }
+                    <img className="responsive-img image-rounded" src={ this.props.character.thumbnail ? this.props.character.thumbnail.path + '/standard_xlarge.' + this.props.character.thumbnail.extension : ''  }
                          alt={ this.props.character.name } title={ this.props.character.name } />
                 </div>
                 <div>
-                    <h5>
+                    <h3>
                         { this.props.character.name }
-                    </h5>
+                    </h3>
                 </div>
             </div>
 		);

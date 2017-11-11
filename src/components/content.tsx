@@ -5,7 +5,7 @@ import './content.css';
 
 import { Character } from './../interfaces';
 
-import { Item, Search } from './../components';
+import { Item, Search, Form } from './../components';
 
 interface MyComponentProps { }
 interface MyComponentState { characters :  Array<Character> }
@@ -46,13 +46,26 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 		const items = this.getItems();
 		return (
 			<div>
-				<Search onKeySearch={this.onKeySearch.bind(this) } />
+                <Form addCharacter={this.addCharacter.bind(this)} />
+				<Search onKeySearch={this.onKeySearch.bind(this)} />
 				<div className="content row col-4 grey-50">
 					{ items }
 				</div>
 			</div>
 		);
 	}
+
+    addCharacter(name: string, description: string) {
+        const character: Character = {
+            id: this.state.characters.length + 1,
+            name,
+            description
+        };
+
+        this.setState({
+            characters: this.state.characters.concat([character])
+        });
+    }
 
 	getItems() {
 		return this.state.characters.map(character => <Item key={character.id} character={character} />);
