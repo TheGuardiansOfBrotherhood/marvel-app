@@ -13,9 +13,6 @@ export class Search extends React.Component<MyComponentProps, MyComponentState> 
 			<div className="search grey">
                 <div className="box">
                     <div className="container-3">
-                        <span className="icon">
-                            <i className="fa-search"></i>
-                        </span>
                         <input type="search" id="search" placeholder="Personagem..." onKeyUp={ this.props.onKeySearch } />
                     </div>
                 </div>
