@@ -13,19 +13,19 @@ export interface Character {
 
     description: string;
 
-    modified: string;
+    modified?: string;
 
-    thumbnail: Thumbnail;
+    thumbnail?: Thumbnail;
 
-    resourceURI: string;
+    resourceURI?: string;
 
-    comics: Comics;
+    comics?: Comics;
 
-    series: Series;
+    series?: Series;
 
-    stories: Stories;
+    stories?: Stories;
 
-    events: Events;
+    events?: Events;
 
-    urls: Array<Url>;
+    urls?: Array<Url>;
 }
