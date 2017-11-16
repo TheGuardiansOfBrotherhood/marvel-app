@@ -39,7 +39,6 @@ class Detail extends React.Component<MyComponentProps, MyComponentState>{
 
 	render() {
 		const character = this.state.character;
-		console.log('>>>>>>>>>>>>>>', character);
 		return (
 			<div className="detail row col-1">
 				<h1>{character.name}</h1>
