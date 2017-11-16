@@ -7,11 +7,11 @@ import { Url } from './url';
 
 export interface Character {
 
-    id: number;
+    id?: number;
 
-    name: string;
+    name?: string;
 
-    description: string;
+    description?: string;
 
     modified?: string;
 
