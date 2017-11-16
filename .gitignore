@@ -22,3 +22,6 @@ yarn-error.log*
 
 # compiled
 /src/interfaces/*.js
+
+# vscode
+.vscode/
