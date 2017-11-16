@@ -2,6 +2,8 @@ import * as React from 'react';
 import './App.css';
 
 import { Content, Footer, Header } from './components';
+import Detail from './components/detail';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -9,7 +11,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Content />
+        <Switch>
+          <Route exact path='/' component={Content}/>
+          <Route path='/detail/:id' component={Detail}/>
+        </Switch>
         <Footer />
       </div>
     );

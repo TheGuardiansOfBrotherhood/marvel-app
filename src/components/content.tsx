@@ -51,7 +51,6 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 				<div className="content row col-4 grey-50">
 					{ items }
 				</div>
-				<div id="modal"></div>
 			</div>
 		);
 	}

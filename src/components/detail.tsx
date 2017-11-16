@@ -1,51 +1,54 @@
 import * as React from 'react';
 import './detail.css';
-
+import * as $ from 'jquery';
 import { Character} from './../interfaces';
-import { Modal, Button} from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 
-interface MyComponentProps { character: Character }
+const HOST = 'https://gateway.marvel.com';
+const API_KEY = 'a2d01370e4278b621c371892e9041094';
+const TIMESTAMP = 1;
+const HASH = '0137664330e5b71ccbdff2421cafa4d7';
 
-export class Detail extends React.Component<MyComponentProps>{
+interface MyComponentProps {}
+interface MyComponentState { character: Character }
 
-    constructor(){
-        super();
-        this.state = {
-			show: true
-        }    
-    }
+class Detail extends React.Component<MyComponentProps, MyComponentState>{
 
-    render(){
-        let close = () => this.setState({ show: false });        
+	constructor(props : MyComponentProps){
+		super(props);
+		this.state = {
+			character: {}
+		}
+	}
 
-        return (
-            
-            <div className="detail.css">
-                <Modal.Dialog>
-                    <Modal.Header closeButton>
-                        <Modal.Title className='titleModal'><strong>{this.props.character.name}</strong></Modal.Title>
-                    </Modal.Header>
-                
-                <Modal.Body className='bodyModal'>
-                    
-                        <img className="responsive-img" src={ this.props.character.thumbnail.path 
-                            + '/portrait_fantastic.' + this.props.character.thumbnail.extension }
-                            alt={ this.props.character.name } title={ this.props.character.name } />    
+	componentWillMount() {
+		this.search();
+	}
 
-                        <p className="row col-4">{this.props.character.description}</p>                    
-                    
-                                           
-                </Modal.Body>
-            
-                <Modal.Footer>
-                    <Button onClick={close}>Close</Button>
-                </Modal.Footer>
-            </Modal.Dialog>
-          </div>
-        )
+	search() {
+		$.ajax({
+	         method: 'GET',
+	         url: `${HOST}/v1/public/characters/${this.props['match'].params.id}?apikey=${API_KEY}&ts=${TIMESTAMP}&hash=${HASH}`,
+	         success: (result) => {
+				const character = result.data.results[0] as Character;
+				this.setState({character});
+	         }
+		 });
+	}
 
-    }
-      
 
+	render() {
+		const character = this.state.character;
+		console.log('>>>>>>>>>>>>>>', character);
+		return (
+			<div className="detail row col-1">
+				<h1>{character.name}</h1>
+				<img className="responsive-img"
+						src={ character.thumbnail ? character.thumbnail.path + '/portrait_fantastic.' + character.thumbnail.extension : ''  }
+						alt={ character.name } title={ character.name }/>
+				<p> {character.description} </p>
+			</div>
+		)
+	}
 }
-
+export default withRouter(Detail);
