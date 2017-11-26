@@ -7,3 +7,7 @@ div.detail {
 div.detail > img {
     margin: 0 auto;
 }
+
+a > .image-rounded {
+    color: #2b303b;
+}

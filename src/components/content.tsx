@@ -8,7 +8,7 @@ import { Character } from './../interfaces';
 import { Item, Search, Form } from './../components';
 
 interface MyComponentProps { }
-interface MyComponentState { characters :  Array<Character> }
+interface MyComponentState { characters:  Array<Character>; }
 
 const HOST = 'https://gateway.marvel.com';
 const API_KEY = 'a2d01370e4278b621c371892e9041094';
@@ -19,12 +19,12 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 
 	private searchTimeout: any = null;
 
-	constructor(props : MyComponentProps) {
+	constructor(props: MyComponentProps) {
 		super(props);
 
 		this.state = {
 			characters: []
-		}
+		};
 	}
 
 	componentWillMount() {
@@ -49,7 +49,7 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
                 <Form addCharacter={this.addCharacter.bind(this)} />
 				<Search onKeySearch={this.onKeySearch.bind(this)} />
 				<div className="content row col-4 grey-50">
-					{ items }
+					{items}
 				</div>
 			</div>
 		);
@@ -79,8 +79,8 @@ export class Content extends React.Component<MyComponentProps, MyComponentState>
 			clearTimeout(this.searchTimeout);
 		}
 
-        this.searchTimeout = setTimeout(() => {
+		this.searchTimeout = setTimeout(() => {
 			this.search(value);
-        }, 500);
+		}, 500);
     }
 }

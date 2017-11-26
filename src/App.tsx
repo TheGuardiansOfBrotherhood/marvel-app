@@ -12,8 +12,8 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path='/' component={Content}/>
-          <Route path='/detail/:id' component={Detail}/>
+          <Route exact path="/" component={Content}/>
+          <Route path="/detail/:id" component={Detail}/>
         </Switch>
         <Footer />
       </div>
