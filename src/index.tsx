@@ -6,8 +6,7 @@ import './index.css';
 import './brotherhood.min.css';
 import './index.css';
 
-
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <Router><App /></Router>,
