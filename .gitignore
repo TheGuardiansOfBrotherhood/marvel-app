@@ -19,3 +19,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# compiled
+/src/interfaces/*.js
+
+# vscode
+.vscode/

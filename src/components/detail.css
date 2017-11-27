@@ -1,0 +1,13 @@
+div.detail {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+div.detail > img {
+    margin: 0 auto;
+}
+
+a > .image-rounded {
+    color: #2b303b;
+}
